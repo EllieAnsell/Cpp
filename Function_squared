@@ -1,0 +1,14 @@
+#include <iostream>
+#include <cstdlib>
+
+
+int square(int value_in)
+{
+    int squared=value_in*value_in;
+    return squared;
+}
+int main()
+{
+    std::cout<<"squared "<<square(7);   
+    return EXIT_SUCCESS;
+}
