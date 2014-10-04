@@ -1,0 +1,23 @@
+import maya.cmds as cm
+def renameSelection(newName):
+    name=cm.ls(sl=True)
+    for i in range(0, len(cm.ls(sl=True))):
+        cm.rename(name[i], str(newName)+str(i))
+renameSelection('hello')
+
+    
+
+def renameGUI(wtitle):
+  windowID = 'Rename' 
+  if cm.window(windowID, exists=True):
+      cm.deleteUI(windowID) 
+  mainLayout = cm.window(windowID, title=wtitle, w=20, h=40, bgc=(0.235,0.226,0.9), tlb=True) 
+  tab = cm.tabLayout( innerMarginWidth=5, innerMarginHeight=5)
+  row1 = cm.rowColumnLayout( "rename", numberOfRows=2, rowHeight=[(1, 20), (2, 20)], bgc=(0.8,0.9,0.6), p=mainLayout)
+  cm.textFieldGrp( 'name', label='name',p=row1) 
+  cm.button("1", l=" GO ", al="center", bgc = (0.5, 0.8, 0.4), command=go, p=row1)
+  cm.showWindow(windowID)
+def go(*pArgs):
+    name=cm.textFieldGrp('name', q=True, tx=True)
+    renameSelection(str(name))
+renameGUI('tree')
