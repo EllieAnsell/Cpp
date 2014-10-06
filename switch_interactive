@@ -1,0 +1,30 @@
+#include <cstdlib>
+
+int square(int value_in)
+{
+	int squared=value_in*value_in;
+	return squared;
+}
+int main()
+{
+	int x=1;
+	int y=1;
+	std::cout<<"Enter a number x: ";
+	std::cin>>x;
+	std::cout<<square(x)<<"\n";
+	
+	std::cout<<"\nEnter a number y: ";
+	std::cin>>y;
+	switch (y) 
+	{	
+		
+		case 1: std::cout<<"y==1\n";
+		case 2: std::cout<<"y==2\n";
+		case 3: std::cout<<"y==3\n";
+		//cout << "x is 1, 2 or 3";
+		break;
+		default:
+		std::cout << "y is neither 1, 2 or 3.";
+	}
+	return EXIT_SUCCESS;
+}
