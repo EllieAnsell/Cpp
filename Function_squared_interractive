@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cstdlib>
+int square(int value_in)
+{
+	int squared=value_in*value_in;
+	return squared;
+}
+int main()
+{
+	int x=1;
+	std::cout<<"Enter a number: ";
+	std::cin>>x;
+	std::cout<<square(x)<<std::endl;
+
+	return EXIT_SUCCESS;
+}
