@@ -1,0 +1,91 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+#include <list>
+
+int square(int value_in)
+{
+	int squared=value_in*value_in;
+	return squared;
+}
+int main()
+{
+	
+	int y=1;
+	
+	
+	std::cout<<"Enter a number.\n1: Square Procedure\n2: Random number generator\n3: Sorting range\n";
+	std::cin>>y;
+	switch (y) 
+	{	
+		
+		case 1: std::cout<<"You chose: Square!\n";
+		{
+			int x=1;
+			std::cout<<"Enter a number x: ";
+			std::cin>>x;
+			std::cout<<square(x)<<"\n";
+			
+   		        break;
+		}
+		case 2: std::cout<<"You chose the random number generator!\n";
+		{
+			int randno, r1, r2;
+			std::cout<<"Enter a minimum range:\n";
+			std::cin>>r1;
+			std::cout<<"Enter a maximum range: \n";
+			std::cin>>r2;
+			randno = rand() % r2 + r1;
+			std::cout<<"Your random number is "<<randno<<"\n";
+		}
+		break;
+		case 3: std::cout<<"Let's do some sorting!\n";
+		{
+			
+			int randno, r11, r12, range, temp=1;
+			std::cout<<"Enter a minimum range:\n";
+			std::cin>>r11;
+			std::cout<<"Enter a maximum range: \n";
+			std::cin>>r12;
+			range= r12-r11;
+			std::cout<<"----\n";
+			int array[range];
+			for (int i=0; i<r12; i++)
+			{
+				
+				randno = rand() % r12 + r11;
+				array[i]=randno;
+				
+			}
+			std::cout<<"Array:";
+			for(int i=0;i<r12;i++)
+			{
+				
+				std::cout<<array[i]<<",";
+			}
+			std::cout<<"\n";
+ 			for(int i=0;i<(r12-1);i++) 
+			{
+				for (int j=(i+1);j<r12;j++)
+				{
+					if (array[i]<array[j])
+					{
+						temp=array[i];
+						array[i]=array[j];
+						array[j]=temp;
+					}
+				}
+			}
+			std::cout<<"Sorted array:";
+			for(int i=0;i<r12;i++)
+			{
+				std::cout<<array[i]<<",";
+			}
+			std::cout<<"\n";
+		}
+		break;
+		default:
+		std::cout << "That is neither 1, 2 or 3 you utter turd; you've ruined everything.";
+	}
+	return EXIT_SUCCESS;
+}
